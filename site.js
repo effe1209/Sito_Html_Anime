@@ -12,12 +12,14 @@ statusGroups.forEach((group) => {
   });
 });
 
-const passwordForm = document.querySelector("#novelle-password-form");
+const passwordForm = document.querySelector("[data-password-gate]");
 
 if (passwordForm) {
-  const passwordInput = document.querySelector("#novelle-password");
-  const errorMessage = document.querySelector("#novelle-password-error");
-  const stories = document.querySelector("#novelle-content");
+  const passwordInput = passwordForm.querySelector('input[type="password"]');
+  const errorMessage = passwordForm.querySelector(".password-error");
+  const protectedContent = document.querySelector(
+    "#novelle-content, #hotpics-content",
+  );
 
   passwordForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -31,8 +33,8 @@ if (passwordForm) {
 
     errorMessage.textContent = "";
     passwordInput.removeAttribute("aria-invalid");
-    stories.hidden = false;
+    protectedContent.hidden = false;
     passwordForm.hidden = true;
-    stories.querySelector("h2").focus();
+    protectedContent.querySelector("h2").focus();
   });
 }

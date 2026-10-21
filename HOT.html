@@ -7,6 +7,7 @@
   <meta name="description" content="Galleria fotografica di Los Hombres.">
   <title>Hot Pics | Los Hombres</title>
   <link rel="stylesheet" href="site.css">
+  <script src="site.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenuto">Salta al contenuto</a>
@@ -27,9 +28,17 @@
     <section class="hero">
       <p class="eyebrow">Galleria</p>
       <h1>Hot Pics</h1>
-      <p>Una raccolta fotografica di Los Hombres.</p>
+      <p>Inserisci la password per accedere alla galleria.</p>
     </section>
-    <div class="gallery gallery-single">
+    <form id="hotpics-password-form" class="panel password-form" data-password-gate>
+      <label for="hotpics-password">Password</label>
+      <input id="hotpics-password" name="password" type="password" autocomplete="current-password" required aria-describedby="hotpics-password-error">
+      <button type="submit">Accedi</button>
+      <p id="hotpics-password-error" class="password-error" aria-live="polite"></p>
+    </form>
+    <noscript><p class="panel">Per accedere alla galleria è necessario attivare JavaScript.</p></noscript>
+    <div id="hotpics-content" class="gallery gallery-single" hidden>
+      <h2 class="visually-hidden" tabindex="-1">Galleria Hot Pics</h2>
       <img src="tutti.jpeg" alt="Foto di gruppo" width="1024" height="768" fetchpriority="high">
       <img src="ok.jpeg" alt="Foto della raccolta" width="970" height="1296" loading="lazy" decoding="async">
       <img src="dux.jpeg" alt="Foto della raccolta" width="1024" height="768" loading="lazy" decoding="async">
